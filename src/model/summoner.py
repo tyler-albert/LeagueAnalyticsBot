@@ -1,9 +1,6 @@
+from neomodel import StructuredNode, StringProperty
 
 
-class Summoner:
-    summoner_name = None
-    account_id = None
-
-    def __init__(self, summoner_name, account_id):
-        self.summoner_name = summoner_name
-        self.account_id = account_id
+class Summoner(StructuredNode):
+    summoner_name = StringProperty(unique_index=True)
+    summoner_id = StringProperty(unique_index=True)
