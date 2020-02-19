@@ -1,10 +1,12 @@
 import sys
 
-from GIMP import GIMPClient
+from src.main.GIMP import GIMPClient
+
 
 def print_usage():
     print("usage: python3 main.py [token file location]")
     sys.exit(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -15,4 +17,3 @@ if __name__ == "__main__":
 
     client = GIMPClient()
     client.run(token.strip())
-

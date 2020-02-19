@@ -1,3 +1,5 @@
+import datetime
+
 from neomodel import config
 
 import src.service.summoner_service as summoner_service
@@ -16,3 +18,13 @@ summoner_list = summoner_service.get_summoner_list(summoner_name_list)
 
 for summoner in summoner_list:
     print(summoner)
+
+today = datetime.datetime.now()
+lastMonth = today - datetime.timedelta(days=5)
+
+i = 0
+for game in summoner_service.get_match_history(summoner_list[0], lastMonth, None)["matches"]:
+    print(str(game))
+    i += 1
+    if i == 100:
+        break
