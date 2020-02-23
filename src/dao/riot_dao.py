@@ -9,7 +9,7 @@ region = "na1"
 base_url = "https://" + region + ".api.riotgames.com/lol"
 
 
-def __riot_get(api_string):
+def __riot_get(api_string: str):
     """Generic method for executing a REST call against a riot api"""
     delimiter = "?"
     if "?" in api_string:
@@ -21,12 +21,12 @@ def __riot_get(api_string):
     return requests.get(full_url).json()
 
 
-def get_summoner_id(summoner_name):
+def get_summoner_id(summoner_name: str):
     riot_summoner = __riot_get("/summoner/v4/summoners/by-name/" + summoner_name)
     return riot_summoner
 
 
-def get_champion_mastery(summoner):
+def get_champion_mastery(summoner: Summoner):
     mastery_summary = __riot_get("champion-mastery/v4/champion-masteries/by-summoner/" + summoner.id)
 
 
@@ -37,3 +37,7 @@ def get_match_history_games(summoner: Summoner, start_time: datetime, end_time: 
         request_string += "&endTime=" + str(int(end_time.timestamp() * 1000))
 
     return __riot_get(request_string)
+
+
+def get_match(match_id: str):
+    return __riot_get("/match/v4/matches/" + str(match_id))
