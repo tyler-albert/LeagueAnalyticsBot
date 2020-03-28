@@ -1,5 +1,5 @@
-import src.dao.riot_dao as riot_dao
-from src.model.summoner import Summoner
+from league_analytics_bot.dao import riot_dao
+from league_analytics_bot.model import Summoner
 
 match_history_page_size = 50
 

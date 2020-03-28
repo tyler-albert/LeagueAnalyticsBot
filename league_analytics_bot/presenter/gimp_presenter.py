@@ -1,4 +1,4 @@
-import src.service.riot_service as riot_service
+import league_analytics_bot.service.riot_service as riot_service
 
 
 def get_summoner(summoner_name):

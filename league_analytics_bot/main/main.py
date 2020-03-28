@@ -1,6 +1,7 @@
 import sys
 
-from src.main.GIMP import GIMPClient
+from league_analytics_bot.main.GIMP import GIMPClient
+from league_analytics_bot.service import DISCORD_TOKEN
 
 
 def print_usage():
@@ -12,8 +13,5 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print_usage()
 
-    token_file = open(sys.argv[1], "r")
-    token = token_file.readline()
-
     client = GIMPClient()
-    client.run(token.strip())
+    client.run(DISCORD_TOKEN)

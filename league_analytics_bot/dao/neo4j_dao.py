@@ -1,6 +1,6 @@
 from neomodel import config
 
-from src.util.definitions import NEO4J_URL
+from league_analytics_bot.util.definitions import NEO4J_URL
 
 
 def initialize():
